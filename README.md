@@ -14,6 +14,6 @@ You can follow the instruction below to launch the sample application.
 
 1. Install dependencies using `yarn`
 2. Launch the web application using `yarn start`
-   run this command in case of any error `export NODE_OPTIONS=--openssl-legacy-provider`
-3. Navigate to [http://localhost:3000](http://localhost:3000)
-4. Run tests using `yarn test`
+3. Run this command in case of any error `export NODE_OPTIONS=--openssl-legacy-provider`
+4. Navigate to [http://localhost:3000](http://localhost:3000)
+5. Run tests using `yarn test`
