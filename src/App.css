@@ -1,0 +1,281 @@
+/* App.css */
+:root {
+  --primary: #2d3436;
+  --secondary: #0984e3;
+  --accent: #e74c3c;
+  --background: #f8f9fa;
+  --text: #2d3436;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--background);
+}
+
+.app {
+  margin: 0 auto;
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 600px;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  border: 2px solid #dfe6e9;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(9, 132, 227, 0.1);
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+/* Book List Styles */
+.book-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.book-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1.5rem;
+  transition: transform 0.2s ease;
+}
+
+.book-cover {
+  width: 100%;
+  height: 180px;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+.book-details h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.book-details p {
+  color: #636e72;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+}
+
+.book-description {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #636e72;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-line-clamp: 3;
+  -ms-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Wishlist Styles */
+.wishlist {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+}
+
+.wishlist h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.wishlist-items {
+  display: grid;
+  gap: 1rem;
+}
+
+.wishlist-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+/* Button Styles */
+.button {
+  cursor: pointer;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.add-button {
+  background: var(--secondary);
+  color: white;
+  margin-top: 1rem;
+  padding: 0.9rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.add-button:hover:not(:disabled) {
+  background: #0873c4;
+}
+
+.add-button:disabled {
+  background: #b2bec3;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.remove-button {
+  background: var(--accent);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.remove-button:hover {
+  background: #c0392b;
+}
+
+/* Loading and Error States */
+.status-message {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+  color: #636e72;
+}
+
+.error {
+  color: var(--accent);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .wishlist {
+    position: static;
+    order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-card {
+    padding: 1rem;
+  }
+
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.skeleton {
+  background: #f0f3f5;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton-line {
+  height: 1rem;
+  background: #dfe6e9;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+button {
+  cursor: pointer;
+  background: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
